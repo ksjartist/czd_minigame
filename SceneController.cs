@@ -14,6 +14,7 @@ public class SceneController : MonoBehaviour
 
 
     [SerializeField] public MainCard originalCard;
+    [SerializeField] public Card_Back cardBack;
     [SerializeField] private Sprite[] images;
 
     private void Start()
@@ -51,16 +52,20 @@ public class SceneController : MonoBehaviour
                 card.transform.position = new Vector3(posX, posY, startPos.z);
             }
 
-           
         }
-        MainCard cardBack;
-        cardBack.SetActive(false);
-
+        Card_Back cBack;
+        cBack = cardBack;
+      
+        //cback = cardBack;
+        Card_Back.SetActive(false);
         yield return new WaitForSeconds(3);
+        Card_Back.SetActive(true);
 
-        cardBack.SetActive(true);
-       
+
+
     }
+
+
 
     private int[] ShuffleArray(int[] numbers)
     {
@@ -185,5 +190,13 @@ public class SceneController : MonoBehaviour
 
         SceneManager.LoadScene("MiniGame");
         Time.timeScale = 1;
+    }
+}
+
+public class Card_Back
+{
+    internal static void SetActive(bool v)
+    {
+        throw new System.NotImplementedException();
     }
 }

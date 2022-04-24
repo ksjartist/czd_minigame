@@ -18,6 +18,8 @@ public class MainCard : MonoBehaviour
     }
 
     private int _id;
+    internal static object cardBack;
+
     public int id
     {
         get { return _id; }
